@@ -1,8 +1,6 @@
 public class BowlingGame {
-  public short getScore(String input) {
-    if (input.equals("-- -- -- -- -- -- -- -- -- -- "))
-      return 0;
-    else
-      return 1;
+  public int getScore(String input) {
+
+    return (int) input.chars().filter(x -> x == '1').count();
   }
 }

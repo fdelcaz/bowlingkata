@@ -22,4 +22,13 @@ public class BowlingKataTest {
 
     assertEquals(bowlingGame.getScore(input), 1);
   }
+
+  @Test
+  public void two_ones_should_count_two_points() {
+
+    String input = "11 -- -- -- -- -- -- -- -- -- ";
+    BowlingGame bowlingGame = new BowlingGame();
+
+    assertEquals(bowlingGame.getScore(input), 2);
+  }
 }
