@@ -1,7 +1,10 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,23 +18,16 @@ public class BowlingKataTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = {"-- -- -- -- -- -- -- -- -- -- "})
-  public void all_spares_should_count_zero_points(String input) {
-
-    assertEquals(0, bowlingGame.getScore(input));
+  @MethodSource("testCases")
+  public void testScenarios(String input, int expectedResult) {
+    assertEquals(expectedResult, bowlingGame.getScore(input));
   }
 
-  @ParameterizedTest
-  @ValueSource(strings = {"12 3- -- -- -- -- -- -- -- -- "})
-  public void one_two_three_should_count_six_points(String input) {
-
-    assertEquals( 6, bowlingGame.getScore(input));
-  }
-
-  @ParameterizedTest
-  @ValueSource(strings = {"9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"})
-  public void ten_pairs_of_nine_and_a_miss_should_count_ninety_points(String input) {
-
-    assertEquals( 90, bowlingGame.getScore(input));
+  static Stream<Arguments> testCases() {
+    return Stream.of(
+      Arguments.of("-- -- -- -- -- -- -- -- -- -- ", 0),
+      Arguments.of("12 3- -- -- -- -- -- -- -- -- ", 6),
+      Arguments.of("9- 9- 9- 9- 9- 9- 9- 9- 9- 9-", 90)
+    );
   }
 }
