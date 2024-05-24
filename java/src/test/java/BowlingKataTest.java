@@ -40,7 +40,7 @@ public class BowlingKataTest {
   }
 
   @Test
-  public void testFrameScoreTokenizer() {
+  public void testGameBWithFrameContextsaseCase() {
     String currentGame = "1- 1- -- -- -- -- -- -- -- -- ";
 
     FrameWithNextFrame firstFameWithNextFrame = new FrameWithNextFrame(1,1);
@@ -50,6 +50,18 @@ public class BowlingKataTest {
     when(this.frameScoreTokenizer.getFramesWithNextFrame(currentGame)).thenReturn(framesWithNextFrames);
 
     assertEquals(2, bowlingGame.getScoreWithFrames(currentGame));
+  }
+
+  @Test
+  public void testGameWithFrameContextsCanCalculateSpare() {
+    String currentGame = "1/ -- -- -- -- -- -- -- -- -- ";
+
+    FrameWithNextFrame firstFameWithNextFrame = new FrameWithNextFrame(10,0);
+
+    List<FrameWithNextFrame> framesWithNextFrames = List.of(firstFameWithNextFrame);
+    when(this.frameScoreTokenizer.getFramesWithNextFrame(currentGame)).thenReturn(framesWithNextFrames);
+
+    assertEquals(10, bowlingGame.getScoreWithFrames(currentGame));
   }
 }
 
