@@ -15,29 +15,19 @@ public class BowlingKataTest {
   }
 
   @Test
-  public void one_one_should_count_one_point() {
-
-    String input = "1- -- -- -- -- -- -- -- -- -- ";
-    BowlingGame bowlingGame = new BowlingGame();
-
-    assertEquals(bowlingGame.getScore(input), 1);
-  }
-
-  @Test
-  public void two_ones_should_count_two_points() {
-
-    String input = "11 -- -- -- -- -- -- -- -- -- ";
-    BowlingGame bowlingGame = new BowlingGame();
-
-    assertEquals(bowlingGame.getScore(input), 2);
-  }
-
-  @Test
   public void one_two_three_should_count_six_points() {
 
     String input = "12 3- -- -- -- -- -- -- -- -- ";
     BowlingGame bowlingGame = new BowlingGame();
 
     assertEquals( 6, bowlingGame.getScore(input));
+  }
+
+  @Test
+  public void ten_pairs_of_nine_and_a_miss_should_count_ninety_points() {
+    String input = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-";
+    BowlingGame bowlingGame = new BowlingGame();
+
+    assertEquals( 90, bowlingGame.getScore(input));
   }
 }
