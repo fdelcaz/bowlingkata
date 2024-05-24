@@ -1,4 +1,12 @@
+import java.util.List;
+
 public class BowlingGame {
+
+  private final FrameScoreTokenizer frameScoreTokenizer;
+
+  public BowlingGame(FrameScoreTokenizer frameScoreTokenizer) {
+    this.frameScoreTokenizer = frameScoreTokenizer;
+  }
 
   public int getScore(String input) {
 
@@ -19,5 +27,16 @@ public class BowlingGame {
     }
 
     return 11;
+  }
+
+  public int getScoreWithFrames(String matchScores) {
+    List<FrameWithNextFrame> tokenizedFrames = this.frameScoreTokenizer.getFramesWithNextFrame(matchScores);
+
+    int totalScore = 0;
+    for (FrameWithNextFrame frame: tokenizedFrames){
+      totalScore += frame.currentScore;
+    }
+
+    return totalScore;
   }
 }
