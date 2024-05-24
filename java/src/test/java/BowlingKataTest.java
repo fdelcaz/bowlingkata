@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BowlingKataTest {
 
@@ -11,7 +10,7 @@ public class BowlingKataTest {
     String input = "-- -- -- -- -- -- -- -- -- -- ";
     BowlingGame bowlingGame = new BowlingGame();
 
-    assertEquals(bowlingGame.getScore(input), 0);
+    assertEquals(0, bowlingGame.getScore(input));
   }
 
   @Test
