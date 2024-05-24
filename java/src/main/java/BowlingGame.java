@@ -1,8 +1,14 @@
 public class BowlingGame {
   public int getScore(String input) {
-    int numberOfOnes = (int) input.chars().filter(x -> x == '1').count();
-    int numberOfTwos = (int) input.chars().filter(x -> x == '2').count();
 
-    return numberOfOnes + numberOfTwos * 2;
+    Character[] numericScores = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
+    int totalScore = 0;
+    for(Character numericScore: numericScores){
+      int numberOfOccurrences = (int) input.chars().filter(x -> x == numericScore).count();
+      totalScore += numberOfOccurrences * Character.getNumericValue(numericScore);
+    }
+
+    return totalScore;
   }
 }

@@ -33,11 +33,11 @@ public class BowlingKataTest {
   }
 
   @Test
-  public void one_two_should_count_three_points() {
+  public void one_two_three_should_count_six_points() {
 
-    String input = "12 -- -- -- -- -- -- -- -- -- ";
+    String input = "12 3- -- -- -- -- -- -- -- -- ";
     BowlingGame bowlingGame = new BowlingGame();
 
-    assertEquals(bowlingGame.getScore(input), 3);
+    assertEquals( 6, bowlingGame.getScore(input));
   }
 }
