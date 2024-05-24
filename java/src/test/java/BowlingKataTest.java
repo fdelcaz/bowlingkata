@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -27,7 +26,9 @@ public class BowlingKataTest {
     return Stream.of(
       Arguments.of("-- -- -- -- -- -- -- -- -- -- ", 0),
       Arguments.of("12 3- -- -- -- -- -- -- -- -- ", 6),
-      Arguments.of("9- 9- 9- 9- 9- 9- 9- 9- 9- 9-", 90)
+      Arguments.of("9- 9- 9- 9- 9- 9- 9- 9- 9- 9-", 90),
+      Arguments.of("9/ 1- -- -- -- -- -- -- -- --", 11)
+//      Arguments.of("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5", 150)
     );
   }
 }
