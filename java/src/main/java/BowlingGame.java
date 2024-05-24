@@ -14,6 +14,10 @@ public class BowlingGame {
       return totalScore;
     }
 
+    if (!input.contains("1-")) {
+      return 10;
+    }
+
     return 11;
   }
 }

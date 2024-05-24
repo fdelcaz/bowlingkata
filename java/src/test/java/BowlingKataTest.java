@@ -27,7 +27,8 @@ public class BowlingKataTest {
       Arguments.of("-- -- -- -- -- -- -- -- -- -- ", 0),
       Arguments.of("12 3- -- -- -- -- -- -- -- -- ", 6),
       Arguments.of("9- 9- 9- 9- 9- 9- 9- 9- 9- 9-", 90),
-      Arguments.of("9/ 1- -- -- -- -- -- -- -- --", 11)
+      Arguments.of("9/ 1- -- -- -- -- -- -- -- --", 11),
+      Arguments.of("9/ -- -- -- -- -- -- -- -- --", 10)
 //      Arguments.of("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5", 150)
     );
   }
